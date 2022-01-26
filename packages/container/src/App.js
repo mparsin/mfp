@@ -2,7 +2,7 @@ import React from 'react'
 import MarketingApp from "./components/MarketingApp";
 import Header from "./components/Header";
 import {BrowserRouter} from "react-router-dom";
-import {createTheme, MuiThemeProvider} from "@material-ui/core";
+import {createGenerateClassName, createTheme, MuiThemeProvider, StylesProvider} from "@material-ui/core";
 
 const theme = createTheme({
     palette: {
@@ -15,14 +15,21 @@ const theme = createTheme({
     },
 });
 
+const generateClassName = createGenerateClassName({
+    productionPrefix: 'co'
+})
+
 export default () => {
     return (
         <BrowserRouter>
-            <MuiThemeProvider theme={theme}>
-                <div>
-                    <Header/>
-                    <MarketingApp/>
-                </div>
-            </MuiThemeProvider>
-        </BrowserRouter>);
+            <StylesProvider generateClassName={generateClassName}>
+                <MuiThemeProvider theme={theme}>
+                    <div>
+                        <Header/>
+                        <MarketingApp/>
+                    </div>
+                </MuiThemeProvider>
+            </StylesProvider>
+        </BrowserRouter>
+    );
 }
