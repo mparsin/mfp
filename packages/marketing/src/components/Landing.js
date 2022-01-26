@@ -37,6 +37,10 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: theme.palette.background.paper,
     padding: theme.spacing(8, 0, 6),
   },
+  mainContainer: {
+    display: "flex",
+    flexDirection: "column"
+  },
   heroButtons: {
     marginTop: theme.spacing(4),
   },
@@ -55,10 +59,22 @@ const useStyles = makeStyles((theme) => ({
   cardContent: {
     flexGrow: 1,
   },
+  logo: {
+    alignSelf: "center",
+    height: 200,
+    padding: theme.spacing(2)
+  },
   footer: {
     backgroundColor: theme.palette.background.paper,
-    padding: theme.spacing(6),
+    padding: theme.spacing(1),
+    position: "absolute",
+    bottom: 0,
+    left: '50%',
+    transform: 'translate(-50%, -50%)'
   },
+  qadButton: {
+    color: theme.palette.qad
+  }
 }));
 
 const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
@@ -71,39 +87,40 @@ export default function Album() {
       <main>
         {/* Hero unit */}
         <div className={classes.heroContent}>
-          <Container maxWidth="sm">
+        {/*<div className={classes.heroContent} style={{border: 'red 1px solid'}}>*/}
+          <Container maxWidth="sm" className={classes.mainContainer}>
+            <img className={classes.logo}
+                 src='https://upload.wikimedia.org/wikipedia/en/thumb/0/0e/Qad-inc-logo.png/220px-Qad-inc-logo.png'/>
             <Typography
-              component="h1"
-              variant="h2"
+              component="h4"
+              variant="h5"
               align="center"
               color="textPrimary"
               gutterBottom
             >
-              Home Page
+              Welcome, MFG Super User
             </Typography>
             <Typography
-              variant="h5"
+              variant="h6"
               align="center"
               color="textSecondary"
               paragraph
             >
-              Something short and leading about the collection below—its
-              contents, the creator, etc. Make it short and sweet, but not too
-              short so folks don&apos;t simply skip over it entirely.
+              You can set any page as your home page. For example, choose a dashboard from the  drop-down and select 'Set Current as Home' from the user menu..
             </Typography>
             <div className={classes.heroButtons}>
               <Grid container spacing={2} justifyContent="center">
                 <Grid item>
                   <Link to="/pricing">
-                    <Button variant="contained" color="primary">
-                      Pricing
+                    <Button variant="text" color="primary">
+                      More Details
                     </Button>
                   </Link>
                 </Grid>
                 <Grid item>
                   <Link to="/pricing">
                     <Button variant="outlined" color="primary">
-                      Pricing
+                      Profile
                     </Button>
                   </Link>
                 </Grid>
@@ -111,8 +128,8 @@ export default function Album() {
             </div>
           </Container>
         </div>
-        <Container className={classes.cardGrid} maxWidth="md">
-          {/* End hero unit */}
+        {/*<Container className={classes.cardGrid} maxWidth="md">
+           End hero unit
           <Grid container spacing={4}>
             {cards.map((card) => (
               <Grid item key={card} xs={12} sm={6} md={4}>
@@ -143,22 +160,18 @@ export default function Album() {
               </Grid>
             ))}
           </Grid>
-        </Container>
+        </Container>*/}
       </main>
       {/* Footer */}
       <footer className={classes.footer}>
-        <Typography variant="h6" align="center" gutterBottom>
-          Footer
-        </Typography>
         <Typography
           variant="subtitle1"
           align="center"
           color="textSecondary"
           component="p"
         >
-          Something here to give the footer a purpose!
+          © 1986 QAD, Inc. All rights reserved.
         </Typography>
-        <Copyright />
       </footer>
       {/* End footer */}
     </React.Fragment>
