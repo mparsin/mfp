@@ -72,9 +72,10 @@ const useStyles = makeStyles((theme) => ({
 
 const tiers = [
   {
-    title: 'Free',
-    price: '0',
-    description: [
+    day: 'Monday',
+    subheader: 'February 14',
+    seqNo: 1,
+    agenda: [
       '10 users included',
       '2 GB of storage',
       'Help center access',
@@ -84,28 +85,55 @@ const tiers = [
     buttonVariant: 'outlined',
   },
   {
-    title: 'Pro',
-    subheader: 'Most popular',
-    price: '15',
-    description: [
+    day: 'Tuesday',
+    subheader: 'February 15',
+    seqNo: 2,
+    agenda: [
       '20 users included',
       '10 GB of storage',
       'Help center access',
       'Priority email support',
     ],
-    buttonText: 'Get started',
+    buttonText: 'More details',
     buttonVariant: 'contained',
   },
   {
-    title: 'Enterprise',
-    price: '30',
-    description: [
+    day: 'Wednesday',
+    subheader: 'February 16',
+    seqNo: 3,
+    agenda: [
       '50 users included',
       '30 GB of storage',
       'Help center access',
       'Phone & email support',
     ],
-    buttonText: 'Contact us',
+    buttonText: 'More details',
+    buttonVariant: 'outlined',
+  },
+  {
+    day: 'Thursday',
+    subheader: 'February 17',
+    seqNo: 4,
+    agenda: [
+      '50 users included',
+      '30 GB of storage',
+      'Help center access',
+      'Phone & email support',
+    ],
+    buttonText: 'More details',
+    buttonVariant: 'outlined',
+  },
+  {
+    day: 'Friday',
+    subheader: 'February 18',
+    seqNo: 5,
+    agenda: [
+      '50 users included',
+      '30 GB of storage',
+      'Help center access',
+      'Phone & email support',
+    ],
+    buttonText: 'More details',
     buttonVariant: 'outlined',
   },
 ];
@@ -153,7 +181,7 @@ export default function Pricing() {
           color="textPrimary"
           gutterBottom
         >
-          Pricing
+          Agenda
         </Typography>
         <Typography
           variant="h5"
@@ -161,9 +189,7 @@ export default function Pricing() {
           color="textSecondary"
           component="p"
         >
-          Quickly build an effective pricing table for your potential customers
-          with this layout. It&apos;s built with default Material-UI components
-          with little customization.
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab, adipisci consectetur culpa doloribus ea eveniet explicabo facere incidunt ipsa magnam, nam obcaecati pariatur praesentium sed similique suscipit tempore velit veniam?
         </Typography>
       </Container>
       {/* End hero unit */}
@@ -173,31 +199,32 @@ export default function Pricing() {
             // Enterprise card is full width at sm breakpoint
             <Grid
               item
-              key={tier.title}
+              key={tier.day}
               xs={12}
-              sm={tier.title === 'Enterprise' ? 12 : 6}
+              sm={tier.day === 'Enterprise' ? 12 : 6}
               md={4}
             >
               <Card>
                 <CardHeader
-                  title={tier.title}
-                  subheader={tier.subheader}
+                  title={`Day ${tier.seqNo}`}
                   titleTypographyProps={{ align: 'center' }}
                   subheaderTypographyProps={{ align: 'center' }}
-                  action={tier.title === 'Pro' ? <StarIcon /> : null}
+                  action={tier.day === 'Pro' ? <StarIcon /> : null}
                   className={classes.cardHeader}
                 />
                 <CardContent>
                   <div className={classes.cardPricing}>
-                    <Typography component="h2" variant="h3" color="textPrimary">
-                      ${tier.price}
+                    <Typography component="h3" variant="h4" color="textPrimary">
+                      {tier.day}
                     </Typography>
+                  </div>
+                  <div className={classes.cardPricing}>
                     <Typography variant="h6" color="textSecondary">
-                      /mo
+                      {tier.subheader}
                     </Typography>
                   </div>
                   <ul>
-                    {tier.description.map((line) => (
+                    {tier.agenda.map((line) => (
                       <Typography
                         component="li"
                         variant="subtitle1"
@@ -226,7 +253,7 @@ export default function Pricing() {
       </Container>
       {/* Footer */}
       <Container maxWidth="md" component="footer" className={classes.footer}>
-        <Grid container spacing={4} justify="space-evenly">
+        <Grid container spacing={4} justifyContent="space-evenly">
           {footers.map((footer) => (
             <Grid item xs={6} sm={3} key={footer.title}>
               <Typography variant="h6" color="textPrimary" gutterBottom>

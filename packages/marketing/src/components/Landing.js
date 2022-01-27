@@ -98,7 +98,7 @@ export default function Album() {
               color="textPrimary"
               gutterBottom
             >
-              Welcome, MFG Super User
+              Welcome to Project Inspire Offsite
             </Typography>
             <Typography
               variant="h6"
@@ -111,16 +111,16 @@ export default function Album() {
             <div className={classes.heroButtons}>
               <Grid container spacing={2} justifyContent="center">
                 <Grid item>
-                  <Link to="/pricing">
+                  <Link to="/agenda">
                     <Button variant="text" color="primary">
-                      More Details
+                      Goals
                     </Button>
                   </Link>
                 </Grid>
                 <Grid item>
-                  <Link to="/pricing">
+                  <Link to="/agenda">
                     <Button variant="outlined" color="primary">
-                      Profile
+                      Agenda
                     </Button>
                   </Link>
                 </Grid>
