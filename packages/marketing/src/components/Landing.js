@@ -58,7 +58,8 @@ const useStyles = makeStyles((theme) => ({
     logo: {
         alignSelf: "center",
         height: 200,
-        padding: theme.spacing(2)
+        padding: theme.spacing(2),
+        border: '1px red dashed'
     },
     footer: {
         backgroundColor: theme.palette.background.paper,
