@@ -60,11 +60,12 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export default function Header({signedIn, onSignOut}) {
+export default function Header({isSignedIn, onSignOut}) {
     const classes = useStyles();
 
     const onClick = () => {
-        if (signedIn && onSignOut) {
+        console.log('click')
+        if (isSignedIn && onSignOut) {
             onSignOut();
         }
     };
@@ -89,9 +90,14 @@ export default function Header({signedIn, onSignOut}) {
                     >
                         QAD Micro-frontends Demo
                     </Typography>
-                    <Button color="inherit" variant="outlined" className={classes.link} component={RouterLink}
-                            to={signedIn ? '/' : '/auth/signin'} onClick={onClick}>
-                        {signedIn ? 'Logout' : 'Login'}
+                    <Button
+                        color="inherit"
+                        variant="outlined"
+                        className={classes.link}
+                        component={RouterLink}
+                        to={isSignedIn ? '/' : '/auth/signin'}
+                        onClick={onClick}>
+                        {isSignedIn ? 'Logout' : 'Login'}
                     </Button>
                 </Toolbar>
             </AppBar>
