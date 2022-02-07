@@ -58,6 +58,7 @@ const useStyles = makeStyles((theme) => ({
     logo: {
         alignSelf: "center",
         height: 200,
+        border: "red solid 2px",
         padding: theme.spacing(2),
     },
     footer: {
